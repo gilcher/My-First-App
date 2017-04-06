@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,15 +48,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DEX_BaseResponse.cs" />
+    <Compile Include="DEX_DTErrorResponse.cs" />
+    <Compile Include="EntityModel\Contactpersons.cs" />
+    <Compile Include="EntityModel\Context.cs" />
+    <Compile Include="EntityModel\Employee.cs" />
+    <Compile Include="EntityModel\EntityCounterparty.cs" />
+    <Compile Include="EntityModel\Accounts.cs" />
+    <Compile Include="EntityModel\Counterparty.cs" />
+    <Compile Include="EntityModel\Group.cs" />
+    <Compile Include="EntityModel\Meta.cs" />
+    <Compile Include="ERP_ConnectionSettings.cs" />
     <Compile Include="HttpHelpers.cs" />
+    <Compile Include="HttpRequest_Light.cs" />
+    <Compile Include="Owner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State.cs" />
+    <Compile Include="Work.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -35,5 +35,46 @@ namespace moy_sklad
                 return String.Empty;
             }
         }
+
+        public static string CheckConnection(string url, string userName, string password, ref string errConnect)
+        {
+            try
+            {
+                webRequest = WebRequest.Create(url);
+                //webRequest.Proxy = HttpWebRequest.DefaultWebProxy;
+                webRequest.Credentials = new NetworkCredential(userName, password);
+
+                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+
+                var sc = ((HttpWebResponse)webResponse).StatusCode;
+                return ((HttpWebResponse)webResponse).StatusDescription;
+            }
+            catch (Exception ex)
+            {
+                var err = ex.InnerException ?? ex;
+                errConnect = err.Message;
+                return String.Empty;
+            }
+        }
+
+        public static string CheckConnection(string url, string userName, string password, IWebProxy proxy)
+        {
+            try
+            {
+                webRequest = WebRequest.Create(url);
+                webRequest.Proxy = proxy; // HttpWebRequest.DefaultWebProxy;
+                webRequest.Credentials = new NetworkCredential(userName, password);
+
+                HttpWebResponse webResponse = (HttpWebResponse)webRequest.GetResponse();
+
+                return ((HttpWebResponse)webResponse).StatusDescription;
+            }
+            catch (Exception ex)
+            {
+                var err = ex.InnerException ?? ex;
+                Console.WriteLine("Ошибка получения данных: {0}", err.Message);
+                return String.Empty;
+            }
+        }
     }
 }
